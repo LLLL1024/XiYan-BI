@@ -13,7 +13,7 @@ import org.springframework.context.annotation.Configuration;
  * @author https://github.com/LLLL1024
  */
 @Configuration
-@MapperScan("com.yupi.springbootinit.mapper")
+@MapperScan("com.xiyan.springbootinit.mapper")
 public class MyBatisPlusConfig {
 
     /**
