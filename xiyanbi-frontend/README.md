@@ -1,4 +1,4 @@
-# 兮颜前端万用模板
+# XiYan-智能BI
 
 > 作者：[程序员兮颜](https://github.com/LLLL1024)
 

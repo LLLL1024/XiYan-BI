@@ -66,8 +66,8 @@ const Login: React.FC = () => {
             maxWidth: '75vw',
           }}
           logo={<img alt="logo" style={{ height: '100%' }} src="/logo.svg" />}
-          title="兮颜前端万用模板"
-          subTitle={'快速开发属于自己的前端项目'}
+          title="XiYan-智能BI"
+          subTitle={'快速分析属于自己的数据'}
           initialValues={{
             autoLogin: true,
           }}

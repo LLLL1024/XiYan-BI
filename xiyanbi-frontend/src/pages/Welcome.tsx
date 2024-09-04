@@ -2,6 +2,7 @@ import { PageContainer } from '@ant-design/pro-components';
 import { useModel } from '@umijs/max';
 import { Card, theme } from 'antd';
 import React from 'react';
+import {} from "@/constants";
 
 /**
  * 每个单独的卡片，为了复用样式抽成了组件
@@ -76,9 +77,7 @@ const InfoCard: React.FC<{
       >
         {desc}
       </div>
-      <a href={href} target="_blank" rel="noreferrer">
-        了解更多 {'>'}
-      </a>
+
     </div>
   );
 };
@@ -114,7 +113,7 @@ const Welcome: React.FC = () => {
               color: token.colorTextHeading,
             }}
           >
-            欢迎使用 Ant Design Pro
+            欢迎使用 XiYan-智能BI数据分析开放平台 🎉
           </div>
           <p
             style={{
@@ -126,8 +125,13 @@ const Welcome: React.FC = () => {
               width: '65%',
             }}
           >
-            Ant Design Pro 是一个整合了 umi，Ant Design 和 ProComponents
-            的脚手架方案。致力于在设计规范和基础组件的基础上，继续向上构建，提炼出典型模板/业务组件/配套设计资源，进一步提升企业级中后台产品设计研发过程中的『用户』和『设计者』的体验。
+            XiYan-智能BI数据分析开放平台是一个为用户和开发者提供丰富数据分析图表服务并且结合了AI的平台 🛠
+          </p>
+          <p>
+            😀 作为『用户』，可以在线选择所需图表并通过导入excel文件使用AI快速进行数据分析，也可以查看自己的图表。
+          </p>
+          <p>
+            🤝 作为『管理员』，可以管理图表和用户。
           </p>
           <div
             style={{
@@ -138,21 +142,18 @@ const Welcome: React.FC = () => {
           >
             <InfoCard
               index={1}
-              href="https://umijs.org/docs/introduce/introduce"
-              title="了解 umi"
-              desc="umi 是一个可扩展的企业级前端应用框架,umi 以路由为基础的，同时支持配置式路由和约定式路由，保证路由的功能完备，并以此进行功能扩展。"
+              title="多样化的图表选择"
+              desc="XiYan-智能BI 提供了丰富多样的图表用您选择，满足您的不同需求。"
             />
             <InfoCard
               index={2}
-              title="了解 ant design"
-              href="https://ant.design"
-              desc="antd 是基于 Ant Design 设计体系的 React UI 组件库，主要用于研发企业级中后台产品。"
+              title="在线生成数据分析功能"
+              desc="您可以在平台上进行数据分析，节省了分析的时间和工作量。"
             />
             <InfoCard
               index={3}
-              title="了解 Pro Components"
-              href="https://procomponents.ant.design"
-              desc="ProComponents 是一个基于 Ant Design 做了更高抽象的模板组件，以 一个组件就是一个页面为开发理念，为中后台开发带来更好的体验。"
+              title="AI 支持"
+              desc="为了方便用户更快的生成图表以及数据分析，提供了AI服务。"
             />
           </div>
         </div>

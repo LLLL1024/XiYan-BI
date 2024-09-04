@@ -15,7 +15,7 @@ const Settings: ProLayoutProps & {
   fixedHeader: false,
   fixSiderbar: true,
   colorWeak: false,
-  title: '兮颜前端万用模板',
+  title: 'XiYan-智能BI',
   pwa: true,
   iconfontUrl: '',
   token: {

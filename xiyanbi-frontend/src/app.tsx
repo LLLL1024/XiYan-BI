@@ -5,6 +5,8 @@ import { history } from '@umijs/max';
 import defaultSettings from '../config/defaultSettings';
 import { AvatarDropdown } from './components/RightContent/AvatarDropdown';
 import { requestConfig } from './requestConfig';
+import { Image } from 'antd';
+import { SYSTEM_LOGO } from './constants';
 
 const loginPath = '/user/login';
 
@@ -40,6 +42,10 @@ export async function getInitialState(): Promise<InitialState> {
 // @ts-ignore
 export const layout: RunTimeLayoutConfig = ({ initialState }) => {
   return {
+    // 点击图片会放大看
+    logo: (
+      <Image width={30} src={SYSTEM_LOGO}/>
+    ),
     avatarProps: {
       render: () => {
         return <AvatarDropdown />;
