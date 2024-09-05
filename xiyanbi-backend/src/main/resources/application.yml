@@ -101,3 +101,9 @@ knife4j:
         api-rule: package
         api-rule-resources:
           - com.xiyan.springbootinit.controller
+# 鱼聪明 AI 配置（https://yucongming.com/）
+# 上传代码的时候要将这个删除在上传
+yuapi:
+  client:
+    access-key: piltjv1bwrsi4dprkxz7dm75eurptiy9
+    secret-key: v2rr87k4v7xxywmirn92r9hrfloiuo2y

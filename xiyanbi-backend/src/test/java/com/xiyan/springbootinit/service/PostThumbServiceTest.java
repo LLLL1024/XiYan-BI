@@ -1,10 +1,12 @@
 package com.xiyan.springbootinit.service;
 
-import javax.annotation.Resource;
+import com.xiyan.springbootinit.model.entity.User;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
+
+import javax.annotation.Resource;
 
 /**
  * 帖子点赞服务测试
