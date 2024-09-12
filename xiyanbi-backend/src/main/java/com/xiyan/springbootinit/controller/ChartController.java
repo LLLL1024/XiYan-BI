@@ -13,6 +13,7 @@ import com.xiyan.springbootinit.constant.UserConstant;
 import com.xiyan.springbootinit.exception.BusinessException;
 import com.xiyan.springbootinit.exception.ThrowUtils;
 import com.xiyan.springbootinit.manager.AiManager;
+import com.xiyan.springbootinit.manager.RedisLimiterManager;
 import com.xiyan.springbootinit.model.dto.chart.*;
 import com.xiyan.springbootinit.model.entity.Chart;
 import com.xiyan.springbootinit.model.entity.User;
@@ -34,7 +35,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * 帖子接口
+ * 图表接口
  *
  * @author <a href="https://github.com/LLLL1024">程序员兮颜</a>
  */
@@ -51,6 +52,9 @@ public class ChartController {
 
     @Resource
     private AiManager aiManager;
+
+    @Resource
+    private RedisLimiterManager redisLimiterManager;
 
 
     // region 增删改查
@@ -242,9 +246,11 @@ public class ChartController {
         final List<String> validFileSuffixList = Arrays.asList("xlsx");
         ThrowUtils.throwIf(!validFileSuffixList.contains(suffix), ErrorCode.PARAMS_ERROR, "文件后缀非法");
 
+        // 先通过获取用户信息来获取用户id
         User loginUser = userService.getLoginUser(request);
-        // 限流判断，每个用户一个限流器
-//        redisLimiterManager.doRateLimit("genChartByAi_" + loginUser.getId());
+        // 限流判断，每个用户一个限流器（针对某个用户 x 方法限流，比如单个用户单位时间内最多执行 XX 次这个方法）
+        // 为什么加上这个genChartByAi_？是为了区分不同的限流器（保证每个限流器不会冲突），如果相同的key，那么第一个方法调用了10次，第二个就用不了了
+        redisLimiterManager.doRateLimit("genChartByAi_" + loginUser.getId());
         // 无需写 prompt，直接调用现有模型，https://www.yucongming.com，公众号搜【鱼聪明AI】
 //        final String prompt = "你是一个数据分析师和前端开发专家，接下来我会按照以下固定格式给你提供内容：\n" +
 //                "分析需求：\n" +
